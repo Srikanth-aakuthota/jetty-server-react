@@ -1,0 +1,61 @@
+repositories {
+    google()
+    mavenCentral()
+}
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    def var = dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.2'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'com.example.myserviceapp'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    compileSdkVersion project.properties.projectCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion project.properties.projectMinSdkVersion.toInteger()
+        targetSdkVersion project.properties.projectTargetSdkVersion
+        versionCode project.properties.projectVersionCode.toInteger()
+        versionName project.properties.projectVersionName
+        buildConfigField "String", "VERSION_NAME", "\"${project.properties.projectVersionName}\""
+        buildConfigField "String", "COMPATIBLE_OS_VERSIONS", "\"${compatible_os_versions}\""
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        buildConfig true
+    }
+    lintOptions {
+        abortOnError false
+    }
+    sourceSets {
+        main {
+            manifest.srcFile '/src/main/AndroidManifest.xml'
+        }
+        debug {
+            manifest.srcFile '/src/main/AndroidManifest.xml'
+        }
+    }
+
+    dependencies {
+        implementation 'androidx.appcompat:appcompat:1.7.1'
+        implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.22"
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"
+    }
+}

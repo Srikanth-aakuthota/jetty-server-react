@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\Z00331nv\\.gradle\\daemon\\8.2\\com.example.myserviceapp-merged_res-23:\\layout_layout_main.xml.flat",
+        "source": "C:\\Users\\Z00331nv\\.gradle\\daemon\\8.2\\com.example.myserviceapp-main-25:\\layout\\layout_main.xml"
+    },
+    {
+        "merged": "com.example.myserviceapp-merged_res-23:/layout_activity_main.xml.flat",
+        "source": "com.example.myserviceapp-main-25:/layout/activity_main.xml"
+    }
+]
