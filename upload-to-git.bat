@@ -5,8 +5,8 @@ REM ============================================================================
 REM == 1. CONFIGURATION VARIABLES ==============================================
 REM =============================================================================
 
-:: Git repository URL
-set GIT_REPO_URL=https://github.com/Srikanth-aakuthota/jetty-server-react.git
+:: Git repository SSH URL
+set GIT_REPO_URL=git@github.com:Srikanth-aakuthota/jetty-server-react.git
 
 :: Branch name
 set BRANCH_NAME=master
@@ -37,13 +37,13 @@ git commit -m "Initial commit"
 
 REM Set the remote repository URL
 echo -- Setting remote repository URL...
-git remote add origin %GIT_REPO_URL%
+git remote set-url origin %GIT_REPO_URL%
 
 REM Push the changes to the remote repository
 echo -- Pushing changes to remote repository...
 git push -u origin %BRANCH_NAME%
 if errorlevel 1 (
-    echo [ERROR] Failed to push changes to Git repository. Check your credentials and repository URL.
+    echo [ERROR] Failed to push changes to Git repository. Check your SSH keys and repository URL.
     exit /b 1
 )
 
